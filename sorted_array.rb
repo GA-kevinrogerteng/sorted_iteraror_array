@@ -38,22 +38,52 @@ class SortedArray
   end
 
   def each &block
-    raise NotImplementedError.new("You need to implement the each method!")
+       i = 0
+    until i == @internal_arr.size
+      yield @internal_arr[i]
+      i += 1
+    end
+    return @internal_arr
+    # raise NotImplementedError.new("You need to implement the each method!")
   end
 
   def map &block
-    raise NotImplementedError.new("You need to implement the map method!")
+       i = 0
+    until i == @internal_arr.size
+      yield @internal_arr[i]
+      i += 1
+    end
+    return @internal_arr
+    # raise NotImplementedError.new("You need to implement the map method!")
   end
 
   def map! &block
-    raise NotImplementedError.new("You need to implement the map! method!")
+    new_array = []
+      i = 0
+    until i == @internal_arr.size
+      new_array << (yield @internal_arr[i])
+      i += 1
+    end
+    return new_array
+    # raise NotImplementedError.new("You need to implement the map! method!")
   end
 
-  def find value
-    raise NotImplementedError.new("You need to implement the find method!")
+  def find value #should be a block
+
+    i = 0
+    self.each do |x|
+      if value == x
+        return value 
+      else 
+        i+1
+      end
+    end
+    return nil
+    # raise NotImplementedError.new("You need to implement the find method!")
   end
 
   def inject acc=nil, &block
-    raise NotImplementedError.new("You need to implement the inject method!")
+    # i = 0
+    
   end
 end
